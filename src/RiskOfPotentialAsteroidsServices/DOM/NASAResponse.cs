@@ -1,0 +1,64 @@
+﻿using System.Collections.Generic;
+
+namespace RiskOfPotentialAsteroids.DOM
+{
+    public class NASAResponse
+    {
+        public int element_count { get; set; }
+        public Dictionary<string, Asteroid[]> near_earth_objects { get; set; }
+    }
+
+    public class Asteroid
+    {
+        public string id { get; set; }
+        public string neo_reference_id { get; set; }
+        public string name { get; set; }
+        public string nasa_jpl_url { get; set; }
+        public double absolute_magnitude_h { get; set; }
+        public EstimatedDiameter estimated_diameter { get; set; }
+        public bool is_potentially_hazardous_asteroid { get; set; }
+        public List<CloseApproachData> close_approach_data { get; set; }
+    }
+
+    public class Kilometers
+    {
+        public double estimated_diameter_min { get; set; }
+        public double estimated_diameter_max { get; set; }
+        public double estimated_diameter_average
+        {
+            get
+            {
+                return (estimated_diameter_min + estimated_diameter_max) / 2;
+            }
+        }
+    }
+
+    public class EstimatedDiameter
+    {
+        public Kilometers kilometers { get; set; }
+    }
+
+    public class RelativeVelocity
+    {
+        public string kilometers_per_hour { get; set; }
+    }
+
+    public class MissDistance
+    {
+        public string astronomical { get; set; }
+        public string lunar { get; set; }
+        public string kilometers { get; set; }
+        public string miles { get; set; }
+    }
+
+    public class CloseApproachData
+    {
+        public string close_approach_date { get; set; }
+        public string close_approach_date_full { get; set; }
+        public object epoch_date_close_approach { get; set; }
+        public RelativeVelocity relative_velocity { get; set; }
+        public MissDistance miss_distance { get; set; }
+        public string orbiting_body { get; set; }
+    }
+
+}
