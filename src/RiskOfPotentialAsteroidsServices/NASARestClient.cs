@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
-namespace RiskOfPotentialAsteroidsServices
+namespace RiskOfPotentialAsteroidsServices.Services
 {
-    public class NasaRestClient : IDisposable
+    public class NASARestClient : INASARestClient, IDisposable
     {
         private const string api_uri = "https://api.nasa.gov/neo/rest/v1/feed";
         private const string api_key = "zdUP8ElJv1cehFM0rsZVSQN7uBVxlDnu4diHlLSb";

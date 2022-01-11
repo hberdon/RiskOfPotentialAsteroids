@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace RiskOfPotentialAsteroidsServices.Services
 {
-    public class RiskOfPotentialAsteroidsService : IDisposable
+    public class RiskOfPotentialAsteroidsService : IRiskOfPotentialAsteroidsService, IDisposable
     {
         /// <summary>
         ///     Get top three biggest potential asteroids by date between today and next days based on parameters days
@@ -29,7 +29,7 @@ namespace RiskOfPotentialAsteroidsServices.Services
 
                 var mapper = new Mapper(config);
 
-                using (var restClient = new NasaRestClient())
+                using (var restClient = new NASARestClient())
                 {
                     var asteroids = restClient.GetRiskAsteroids(days);
 
